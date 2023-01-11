@@ -1,0 +1,31 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Labyrinth/1.0.0": {
+        "runtime": {
+          "Labyrinth.dll": {}
+        },
+        "resources": {
+          "en/Labyrinth.resources.dll": {
+            "locale": "en"
+          },
+          "hu/Labyrinth.resources.dll": {
+            "locale": "hu"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Labyrinth/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
