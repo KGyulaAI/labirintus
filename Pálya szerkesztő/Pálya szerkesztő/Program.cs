@@ -14,6 +14,123 @@ namespace Palya_szerkeszto
         static char[,]? map;
         static bool language = false;
         static List<char> palyaElemek = new List<char>() { '.', '╬', '═', '╦', '╩', '║', '╣', '╠', '╗', '╝', '╚', '╔', '█' };
+        //Kijáratok száma
+        static int GetSuitableEntrance(char[,] map)
+        {
+            int exits = 0;
+            for (int sorIndex = 0; sorIndex < map.GetLength(0); sorIndex++)
+            {
+                //Bal oszlop
+                char balOszlopChar = map[sorIndex, 0];
+                switch (balOszlopChar)
+                {
+                    case '╬':
+                    case '═':
+                    case '╦':
+                    case '╩':
+                    case '╣':
+                    case '╗':
+                    case '╝':
+                        exits++;
+                        break;
+                }
+                //Jobb oszlop
+                char jobbOszlopChar = map[sorIndex, map.GetLength(1) - 1];
+                switch (jobbOszlopChar)
+                {
+                    case '╬':
+                    case '═':
+                    case '╦':
+                    case '╩':
+                    case '╠':
+                    case '╚':
+                    case '╔':
+                        exits++;
+                        break;
+                }
+            }
+            for (int oszlopIndexe = 1; oszlopIndexe < map.GetLength(1) - 1; oszlopIndexe++)
+            {
+                //Felső sor
+                char felsoSorChar = map[0, oszlopIndexe];
+                switch (felsoSorChar)
+                {
+                    case '╬':
+                    case '╩':
+                    case '║':
+                    case '╣':
+                    case '╠':
+                    case '╝':
+                    case '╚':
+                        exits++;
+                        break;
+                }
+                //Alsó sor
+                char alsoSorChar = map[map.GetLength(0) - 1, oszlopIndexe];
+                switch (alsoSorChar)
+                {
+                    case '╬':
+                    case '╦':
+                    case '║':
+                    case '╣':
+                    case '╠':
+                    case '╗':
+                    case '╔':
+                        exits++;
+                        break;
+                }
+            }
+            return exits;
+        }
+        //Termek száma
+        public static int GetRoomNumber(char[,] map)
+        {
+            int roomNumber = 0;
+            foreach (char c in map)
+            {
+                if (c == '█')
+                {
+                    roomNumber++;
+                }
+            }
+            return roomNumber;
+        }
+        //Szabálytalan karakterek száma
+        static bool IsInvalidElement(char[,] map)
+        {
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    if (map[i, j] != '.' && map[i, j] != '╔' && map[i, j] != '╗' && map[i, j] != '╚' && map[i, j] != '╝' && map[i, j] != '╬' && map[i, j] != '║' && map[i, j] != '█')
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+        //Elérhetetlen karakterek
+        static List<string> GetUnavailableElements(char[,] map)
+        {
+            List<string> elerhetetlen = new List<string>();
+
+            int rows = map.GetLength(0);
+            int cols = map.GetLength(1);
+
+            for (int i = 1; i < rows - 1; i++)
+            {
+                for (int j = 1; j < cols - 1; j++)
+                {
+                    if (map[i, j] != '.' && map[i - 1, j] == '.' && map[i + 1, j] == '.' && map[i, j - 1] == '.' && map[i, j + 1] == '.')
+                    {
+                        elerhetetlen.Add((i + 1) + ":" + (j + 1));
+                    }
+                }
+            }
+            return elerhetetlen;
+        }
         //Program címe
         static void Title()
         {
@@ -36,6 +153,20 @@ namespace Palya_szerkeszto
             do
             {
                 PrintMap(map, true);
+                for (int index = 0; index < GetUnavailableElements(map).Count; index++)
+                {
+                    Console.Write($"{GetUnavailableElements(map)[index]}, ");
+                }
+                if (language == false)
+                {
+                    Console.WriteLine($"\nTermek száma: {GetRoomNumber(map)}");
+                    Console.WriteLine($"Kijáratok száma: {GetSuitableEntrance(map)}");
+                }
+                else
+                {
+                    Console.WriteLine($"\nNumber of rooms: {GetRoomNumber(map)}");
+                    Console.WriteLine($"Number of exits: {GetSuitableEntrance(map)}");
+                }
                 Title();
                 if (language == false)
                 {
@@ -116,6 +247,19 @@ namespace Palya_szerkeszto
                     //MENTÉS
                     //D betű lenyomása
                     case ConsoleKey.D:
+                        if (GetRoomNumber(map) < 1 && GetSuitableEntrance(map) < 1 && IsInvalidElement(map) == false)
+                        {
+                            if (language == false)
+                            {
+                                Console.WriteLine("Nem mentheted el így!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("You can't save it like that!");
+                            }
+                            Thread.Sleep(1000);
+                            FoMenu();
+                        }
                         string bekeres;
                         if (language == false)
                         {
@@ -126,18 +270,6 @@ namespace Palya_szerkeszto
                             Console.WriteLine("Please add the map's path: ");
                         }
                         bekeres = Console.ReadLine();
-                        do
-                        {
-                            if (language == false)
-                            {
-                                Console.WriteLine("Nem létezik, add meg újra: ");
-                            }
-                            else
-                            {
-                                Console.WriteLine("It doesn't exist, give it again: ");
-                            }
-                            bekeres = Console.ReadLine();
-                        } while (!File.Exists(bekeres));
                         MapMentes(map, bekeres);
                         break;
                     //BETÖLTÉS
@@ -174,7 +306,7 @@ namespace Palya_szerkeszto
                     //SZERKESZTÉS
                     //E betű lenyomása
                     case ConsoleKey.E:
-                        
+
                         PrintMap(map, true);
                         ElemLerakas();
                         break;
@@ -192,6 +324,7 @@ namespace Palya_szerkeszto
                         {
                             Console.WriteLine("Incorrect option, try again: ");
                         }
+                        Thread.Sleep(1000);
                         break;
                 }
             } while (true);
@@ -341,19 +474,17 @@ namespace Palya_szerkeszto
         static void MapMentes(char[,] map, string eleresiUtvonal)
         {
             //ACCESS DENIED LÉPHET FEL!!!
-            string[] lines = new string[map.GetLength(0)];
-            string line = "";
-            for (int row = 0; row < map.GetLength(0); row++)
+
+            string[] sorok = new string[map.GetLength(0)];
+
+            for (int sorIndex = 0; sorIndex < map.GetLength(0); sorIndex++)
             {
-                for (int col = 0; col < map.GetLength(1); col++)
+                for (int oszlopIndex = 0; oszlopIndex < map.GetLength(1); oszlopIndex++)
                 {
-                    line += map[row, col];
+                    sorok[sorIndex] += map[sorIndex, oszlopIndex];
                 }
-                lines[row] = line;
-                line = "";
             }
-            File.SetAttributes(eleresiUtvonal, fileAttributes: FileAttributes.Normal);
-            File.WriteAllLines(eleresiUtvonal, lines);
+            File.WriteAllLines(eleresiUtvonal, sorok);
         }
         //Map megjelenítése
         static void PrintMap(char[,] map, bool border = false)
