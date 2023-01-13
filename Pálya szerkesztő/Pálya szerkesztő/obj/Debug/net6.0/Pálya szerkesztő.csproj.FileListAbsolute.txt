@@ -1,0 +1,15 @@
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\bin\Debug\net6.0\Pálya szerkesztő.exe
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\bin\Debug\net6.0\Pálya szerkesztő.deps.json
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\bin\Debug\net6.0\Pálya szerkesztő.runtimeconfig.json
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\bin\Debug\net6.0\Pálya szerkesztő.dll
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\bin\Debug\net6.0\Pálya szerkesztő.pdb
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\Pálya szerkesztő.csproj.AssemblyReference.cache
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\Pálya szerkesztő.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\Pálya szerkesztő.AssemblyInfoInputs.cache
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\Pálya szerkesztő.AssemblyInfo.cs
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\Pálya szerkesztő.csproj.CoreCompileInputs.cache
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\Pálya szerkesztő.dll
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\refint\Pálya szerkesztő.dll
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\Pálya szerkesztő.pdb
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\Pálya szerkesztő.genruntimeconfig.cache
+C:\Users\Anikó\Documents\Mechwart\Programozás\Decemberi projekt\Pályaszerkesztő\Pálya szerkesztő\Pálya szerkesztő\obj\Debug\net6.0\ref\Pálya szerkesztő.dll
